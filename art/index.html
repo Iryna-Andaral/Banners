@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+
+	<title>10101 Art 300x250</title>
+	<style type="text/css">
+		body , html {width:100%;margin:0;padding:0;box-sizing: border-box;}
+
+		#banner{
+			width: 300px;
+			height: 250px;
+			position: relative;
+			overflow: hidden;
+			cursor:pointer;	
+			font-family: 'Poppins', sans-serif;
+			color: white;
+			background-color: #000;
+		}
+		.wrapper {
+			height:100%;
+			width:100%;
+		}
+		.copy-wrapper {
+			width:160px;
+			height:78px;
+			top:66px;
+			right:14px;
+		}
+		.line {
+			background-color: #FF1D6A;
+			width:166px;
+			height:12px;
+			left:50%;
+			margin-left: -83px;
+			top: 25px;
+		}
+		.copy {
+			left:50%;
+			margin-left: -80px;
+		}
+		p {
+			padding: 0;
+			margin: 0;
+			
+		}
+		div, img {
+			position:absolute;
+		}
+		.logo {
+			position: absolute;
+			left: 14px;
+			top:14px;
+		}
+		.logo {
+			top: 11px;
+			left:50%;
+			transform: translateX(-50%);
+		}
+		.art {
+			left:50%;
+			transform: translateX(-50%);
+		}
+
+		.text {
+			font-size: 24px;
+			font-weight: 700;
+			line-height: 1.167;		}	
+		.cta {
+			bottom:26px;
+			width: 132px;
+			height: 32px;
+			left: 50%;
+			transform: translateX(-50%);
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: 700;
+			background-color: #52FFE0;
+		}
+		.cta-arrow{
+			margin-right:5px; 
+			position: static;
+		}
+		.cta-text{
+			position: static;
+		}
+		.art-wrapper {
+			top:53px;
+			width:100%;
+			height:158%;
+		}
+		.price-wrapper{
+			width:105px;
+			height:63px;
+			top:115px;
+			left:175px;
+		}
+
+		.fragm{
+			border: 1px solid #FF1D6A;
+			width:9px;
+			height:9px;
+			left:148px;
+			top:67px;
+		}
+		.bh {
+			width: 79px;
+			height:1px;
+			border-top: 1px solid #FF1D6A;
+			left: 159px;
+    		top: 72px;
+		}	
+		.bv {
+			width: 1px;
+			height:50px;
+			border-left: 1px solid #FF1D6A;
+			left: 237px;
+			top:72px;			
+		}	
+		.line-price{
+			background-color: #FF1D6A;
+			width:38px;
+			height:9px;
+			top: 30px;			
+		}
+		.price{
+			left:53px;
+			top:13px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="banner">
+		<img class="logo" src="assets/logo.svg" width="20px" height="22px">
+		<div class="wrapper">
+			<div class="copy-wrapper">
+				<div class="line"></div>
+				<img class="copy" src="assets/copy.svg" width="160px" height="78px">
+			</div>	
+			<div class="cta" id="cta">
+				<img class="cta-arrow" src="assets/arrow.svg" width="10px" height="6px">
+				<img class="cta-text" src="assets/cta.svg" width="79px" height="12px">			
+			</div>
+		</div>
+		<div class="art-wrapper">
+			<img class="art" src="assets/art.png" width="141px" height="158px">		
+			<div class="fragm"></div>
+			<div class="bh"></div>
+			<div class="bv"></div>
+			
+			<div class="price-wrapper">
+				<img class="folder" src="assets/folder.png" width="105px" height="63px">
+				<div class="price">
+					<div class="line-price"></div>
+					<img src="assets/200.svg" width="37px" height="37px">
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function(e){
+		var tl=new gsap.timeline({repeat:-1});
+		tl
+			.fromTo(".art-wrapper" ,{opacity:0, scale:1.3, x:30, transformOrigin: "top left"},{opacity:1, scale:0.75, x:-50, ease:  Elastic.easeOut.config(1, 0.8), duration:0.8} )
+			.fromTo(".copy-wrapper" ,{opacity:0, x:30},{opacity:1, x:0, ease:  Elastic.easeOut.config(1, 0.8)}, "-=0.8" )
+			.fromTo(".line" ,{scaleX:0},{scaleX:1, ease:Linear.easeNone, transformOrigin: "top left"} )
+			.fromTo(".cta" ,{scale:1.3, opacity:0},{scale:1, opacity:1, ease:  Elastic.easeOut.config(1, 0.8), duration:0.8}, "+=0.3" )
+
+			.to(".cta" ,{scale:1.05, repeat:3, yoyo:true, duration:0.3,ease:Linear.easeNone }, "+=0.1" )
+			.to(".cta-arrow" ,{y:-5, repeat:3, yoyo:true, duration:0.3,ease:Linear.easeNone }, "-=0.8" )
+
+			.to(".copy-wrapper, .cta" ,{opacity:0, x:30}, "+=2.5" )
+
+			.to(".art-wrapper" ,{scale:1, x:0, transformOrigin: "top left"}, "-=0.5" )
+			.fromTo(".fragm" ,{scale:0, opacity:0},{opacity:1, scale:1} )
+			.fromTo(".bh" ,{scaleX:0},{scaleX:1,ease:Linear.easeNone, transformOrigin: "top left"} )
+			.fromTo(".bv" ,{scaleY:0},{scaleY:1,ease:Linear.easeNone, transformOrigin: "top left"} )
+			.fromTo(".price-wrapper" ,{opacity:0, scale:0},{opacity:1,scale:1,ease:  Elastic.easeOut.config(1, 0.8), transformOrigin: "top left"} )
+			.fromTo(".line-price" ,{scaleX:0},{scaleX:1, ease:Linear.easeNone, transformOrigin: "top left"} )
+			.to(".price-wrapper" ,{skewY:-5, yoyo:true, repeat:3,ease:Linear.easeNone, transformOrigin: "bottom center"}, "+=0.3" )
+
+			.to(".art-wrapper" ,{opacity:0, scale:1.3, x:30, transformOrigin: "top left", ease:  Elastic.easeOut.config(1, 0.8)}, "+=3" )
+			;	
+	});
+
+</script>
+
+</body>
+</html>

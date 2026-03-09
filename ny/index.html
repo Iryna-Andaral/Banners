@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/CSSRulePlugin.min.js"></script>
+
+	<title>Cointraffic 300x250</title>
+	<style type="text/css">
+		body , html {width:100%;margin:0;padding:0;box-sizing: border-box;}
+		#banner{
+			width: 300px;
+			height: 250px;
+			position: relative;
+			overflow: hidden;
+			cursor:pointer;	
+			background: rgb(255,110,0);
+			background: -moz-linear-gradient(180deg, rgba(255,110,0,1) 44%, rgba(255,200,0,1) 100%);
+			background: -webkit-linear-gradient(180deg, rgba(255,110,0,1) 44%, rgba(255,200,0,1) 100%);
+			background: linear-gradient(180deg, rgba(255,110,0,1) 44%, rgba(255,200,0,1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff6e00",endColorstr="#ffc800",GradientType=1);
+		}
+		div, img, svg {
+			position:absolute;
+		}
+		.bg-image{
+			right:0px;
+			bottom:7px;
+		}
+		.deer-wrapper{
+			width:100%;
+			height:100%;
+		}
+		.deer{
+			right:-21px;
+			top:-5px;
+		}
+		.green {
+			background-color: #027943;
+			height:100%;
+			width:215px;
+			overflow: hidden;
+		}
+		.bg-image{
+			right:0px;
+			bottom:7px;
+		}
+
+		.wrapper {
+			height:100%;
+			width:100%;
+		}
+		.logo{
+			top:24px;
+			left:16px;
+			width:90px;
+			height:auto;
+		}	
+		.copy-wrapper{
+			width:100%;
+			display: flex;
+			flex-direction: column;
+			height:100%;
+			justify-content: center;
+			left:16px;
+		}
+		.copy1, .copy2, .copy3{
+			position: static;
+		}
+		.copy21{
+			margin-bottom: 15px;
+		}
+		.copy31{
+			margin-bottom: 15px;
+		}
+		#container{
+			width:300px;
+			height:250px;
+		}
+		.dot{
+			background-repeat: no-repeat;
+			background-image: url("assets/sn2.png");
+			background-size: 100% 100%;
+			width: 8px;
+			height:8px;
+		}
+		.dot:nth-child(1){
+			background-image: url("assets/sn1.png");
+			
+		}		
+		.dot:nth-child(2){
+			background-image: url("assets/sn2.png");
+		}
+		.dot:nth-child(3){
+			background-image: url("assets/sn3.png");
+		}	
+	</style>
+</head>
+
+<body>
+	<div id="banner">
+		<img class="bg-image" src="assets/bg.png" width="265" height="244">
+		<div class="deer-wrapper">
+			<div class="green"></div>
+			<img class="bg-image2" src="assets/bg2.png" width="203" height="247">
+			<img class="deer" src="assets/deer.png" width="121" height="274">
+		</div>
+		<div id="container"></div>
+		<div class="wrapper">
+			<img class="logo" src="assets/logo.svg" width="89" height="20">
+		
+			<div class="copy-wrapper copy1-wrapper">
+				<img class="copy1" src="assets/copy1.svg" width="164" height="78">											
+			</div>
+			<div class="copy-wrapper copy2-wrapper">
+				<img class="copy2 copy21" src="assets/copy21.svg" width="173" height="41">
+				<img class="copy2 copy22" src="assets/copy22.svg" width="159" height="37">											
+			</div>
+			<div class="copy-wrapper copy3-wrapper">
+				<img class="copy3 copy31" src="assets/copy31.svg" width="183" height="15">
+				<img class="copy3 copy32" src="assets/copy32.svg" width="172" height="42">												
+			</div>
+		</div>
+	</div>
+
+<script>
+	gsap.registerPlugin(CSSRulePlugin);
+
+	document.addEventListener("DOMContentLoaded", function(e){
+	// var path1 =  [{x:0, y:0},{x:-5, y:0},{x:-5, y:5},  {x:-5, y:5},{x:0, y:5},  {x:5, y:5},{x:5, y:5},  {x:5, y:0},{x:0, y:0}];
+	// var path2 =  [{x:0, y:0},{x:-10, y:0},{x:-10, y:10},  {x:-10, y:10},{x:0, y:10},  {x:2, y:10},{x:2, y:10},  {x:2, y:0},{x:0, y:0}];
+	// var path3 =  [{x:0, y:0},{x:10, y:0},{x:10, y:10},  {x:10, y:10},{x:0, y:10},  {x:10, y:10},{x:10, y:10},  {x:10, y:0},{x:0, y:0}];
+
+	// 	var tlRotation = new gsap.timeline({delay:3});
+	// 	tlRotation.add[(
+	// 		gsap.to(".box-wrapper", {motionPath: {path: path3}, duration:8, ease:Linear.easeNone, repeat:-1}),
+	// 		gsap.to(".santa-wrapper", {motionPath: {path: path2}, duration:5, ease:Linear.easeNone, repeat:-1}),
+	// 		gsap.to(".coins-wrapper", {motionPath: {path: path1}, duration:6, ease:Linear.easeNone, repeat:-1})
+	// 	)];
+
+		gsap.to(".deer", {y:-15, repeat:-1, yoyo:true, duration:2, ease:Linear.easeNone});
+
+		var tl = new gsap.timeline({repeat:-1});	
+		tl
+		//frame1
+
+		.fromTo(".deer-wrapper", {x:-90}, {x:0, duration:0.6})
+		.fromTo(".copy1", {x:-90, skewX:-20,opacity:0}, {x:0,skewX:0,opacity:1, duration:0.6},"-=0.5")
+		
+		//frame2
+		.to(".copy1", {x:-90, skewX:20,opacity:0,duration:0.6},"+=2")
+		.to(".deer-wrapper", {x:-90, duration:1},"-=0.6")
+		.to(".deer-wrapper", {x:0, duration:0.6})
+		.fromTo(".copy2", {x:-90, skewX:-20,opacity:0}, {x:0,skewX:0,opacity:1, stagger:0.5, duration:0.6},"-=0.5")
+		//frame3
+		.to(".copy2", {x:-90, skewX:20,opacity:0,duration:0.6},"+=2")
+		.to(".deer-wrapper", {x:-90, duration:0.6},"-=0.6")
+		.to(".deer-wrapper", {x:0, duration:0.6})
+		.fromTo(".copy3", {x:-90, skewX:-20,opacity:0}, {x:0,skewX:0,opacity:1, stagger:0.5, duration:0.6},"-=0.5")
+		//end
+		.to(".copy3", {x:-90, skewX:20,opacity:0,duration:0.6},"+=4")
+		.to(".deer-wrapper", {x:-90, duration:0.6},"-=0.6")
+
+		;
+
+		/*
+			snow animation
+		*/
+		gsap.set("#container",{perspective:600})
+		
+		var total = 10;
+		var warp = document.getElementById("container"),	w = warp.offsetWidth; h = warp.offsetHeight;
+		
+		for (i=0; i<total; i++){ 
+		var Div = document.createElement('div');
+		
+		gsap.set(Div,{attr:{class:'dot'},x:R(0,w),y:R(-200,-150),z:R(-200,200), opacity:R(0.3,0.75), scale:R(3,5), rotation:R(180,360)});
+		
+		warp.appendChild(Div);
+		animm(Div);
+		}
+		
+		function animm(elm){   
+		gsap.to(elm,{y:h+100,ease:Linear.easeNone,repeat:-1,delay:-15, duration:R(5,9)});
+		gsap.to(elm,{rotation:0,duration:R(2,4), yoyo:true, repeat:-1, ease:Linear.easeNone});
+		gsap.to(elm,{x:'+=200',repeat:-1,yoyo:true,duration:R(8,15),ease:Sine.easeInOut});
+
+		};
+
+		function R(min,max) {return min+Math.random()*(max-min)};
+
+
+
+	});			
+
+
+</script>
+
+</body>
+</html>
